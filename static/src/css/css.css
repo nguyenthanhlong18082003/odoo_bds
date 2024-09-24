@@ -1,0 +1,26 @@
+/* id là #
+clas là . */
+#products_grid {
+    width: 100% !important;
+}
+#products_grid_before {
+    display: none !important;
+}
+.oe_product {
+    height: 300px !important;
+    }
+.oe_product_image {
+    min-width: 240px !important;
+    
+}
+
+.o_wsale_product_sub{
+    justify-content: start !important;
+}
+.overlay-box{
+    height: 40% !important;
+}
+
+/* .dong {
+    margin-right: 200px !important;
+} */

@@ -1,0 +1,55 @@
+<odoo>
+      <!-- CÁCH LẤY DỮ LIỆU KHÔNG ĐƯỢC HỔ TRỢ HIỂN THỊ TRONG PRODUCT ODOO RA WEDSITE -->
+
+
+
+
+  <!-- <template id="custom_product_template" inherit_id="website_sale.product">
+
+    <xpath expr="//section[@id='product_detail']" position="after">
+            <t t-raw="product.default_code"/>
+        </xpath>
+    </template> -->
+    
+    <!-- Lấy ảnh từ product của odoo ra website detail sản phẩm -->
+    <template id="custom_product_template_image" inherit_id="website_sale.product">
+    <xpath expr="//div[@id='product_details']" position="inside">
+      <t t-if="product.image">
+        <img t-att-src="'/web/image/product.template/' + str(product.id) + '/image'"
+             alt="Product Image"
+             class="img-fluid"
+             style="width: 100px; height: 100px;"/>
+        </t>
+      </xpath>
+    </template>
+
+    <!-- Lấy diện tính ra website detail sản phẩm -->
+    <template id="custom_product_template_dtich" inherit_id="website_sale.product">
+
+    <xpath expr="//div[@id='product_details']" position="inside">
+            <t t-raw="product.square"/> m²
+        </xpath>
+    </template>
+
+    <!-- Lấy địa chỉ ra website trang detail sản phẩm -->
+    <template id="custom_product_template_diachi" inherit_id="website_sale.product">
+      <xpath expr="//div[@id='product_details']" position="inside">
+          <!-- Hiển thị địa chỉ ở phía dưới của chi tiết sản phẩm -->
+          <div>
+              <span t-esc="product.address" style="display: block; padding-top: 10px;">
+                  <!-- Address sẽ hiển thị tại đây -->
+              </span>
+          </div>
+      </xpath>
+    </template>
+
+    <!-- <template id="custom_product_template_dtichduan" inherit_id="website_sale.products">
+
+    <xpath expr="(//form[@class='oe_product_cart h-100 d-flex'])[1]" position="inside">
+            <t t-raw="product.square"/>
+        </xpath>
+    </template> -->
+
+</odoo>
+
+

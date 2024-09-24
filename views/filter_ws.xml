@@ -1,0 +1,42 @@
+<odoo>
+    <!-- filter loại bất động sản -->
+    <template id="shop_filter_inherit" inherit_id="website_sale.products">
+    <xpath expr="//*[contains(@class, 'products_header')]" position="after">
+        <div class="custom-area-filter">
+            <!-- <label for="min_area">Min Area (m²):</label>
+            <input type="number" id="min_area" name="min_area" t-att-value="request.params.get('min_area') or ''" />
+            <label for="max_area">Max Area (m²):</label>
+            <input type="number" id="max_area" name="max_area" t-att-value="request.params.get('max_area') or ''" /> -->
+         <select id="city_filter" name="city_filter">
+                <option value="">Khu Vực</option>
+                <option t-foreach="city_values" t-as="state" t-att-value="state.id" t-esc="state.name"
+                        t-att-selected="request.params.get('city_filter') == str(state.id)" />
+            </select>
+            <select id="city_filter" name="">
+                <option value="">Loại Bất Động Sản</option>
+                <option t-foreach="categories" t-as="state" t-att-value="state.id" t-esc="state.name"
+                         />
+            </select>
+            <select id="city_filter" name="">
+                <option value="">Phương Hướng</option>
+                <option value="">North</option>
+                <option value="">South</option>
+                <option value="">East</option>
+                <option value="">West</option>
+                <option value="">Northeast</option>
+                <option value="">Northwest</option>
+                <option value="">Southwest</option>
+                <option value="">Southeast</option>
+            </select>
+            <select id="price_filter" name="price_filter">
+                <option value="">Chọn Giá</option>
+                <option value="0-50000000">Dưới 50,000,000</option>
+                <option value="50000000-500000000">50,000,000 - 500,000,000</option>
+                <option value="500000000-1000000000">500,000,000 - 1,000,000,000</option>
+                <option value="1000000000">Trên 1,000,000,000</option>
+            </select>
+        </div>
+    </xpath>
+</template>
+
+</odoo>
